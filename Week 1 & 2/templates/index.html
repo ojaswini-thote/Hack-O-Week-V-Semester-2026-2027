@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📋 Task Manager</h1>
+    <p class="subtitle">Organize your work efficiently</p>
+
+    <div class="form-container">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Task Title">
+
+        <textarea
+            id="description"
+            placeholder="Task Description"></textarea>
+
+        <div class="row">
+
+            <select id="priority">
+                <option>High</option>
+                <option selected>Medium</option>
+                <option>Low</option>
+            </select>
+
+            <select id="status">
+                <option selected>Pending</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+            </select>
+
+        </div>
+
+        <button id="addBtn">
+            Save Task
+        </button>
+
+    </div>
+
+    <h2>Your Tasks</h2>
+
+    <div id="taskList"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
