@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This repository contains the **5 projects** completed as part of **Hack-O-Week V for the V Semester (2026–2027)**.
+This repository contains the **6 projects** completed as part of **Hack-O-Week V for the V Semester (2026–2027)**.
 
-The projects cover different areas of computer science and practical application development, including **web development, database management, data analysis, mathematics for machine learning, regression, classification, and machine learning model evaluation**.
+The projects cover different areas of computer science and practical application development, including **web development, database management, data analysis, mathematics for machine learning, regression, classification, machine learning model evaluation, and unsupervised learning**.
 
-Each project corresponds to **one folder containing two Hack-O-Week weeks**. Therefore, this repository contains **5 project folders in total**.
+The repository contains six projects covering Hack-O-Week activities from **Week 1 to Week 10**.
 
 ### Projects Included
 
@@ -16,7 +16,8 @@ Each project corresponds to **one folder containing two Hack-O-Week weeks**. The
 | 2 | `Week 3 & 4` | Employee Performance Analysis |
 | 3 | `Week 5 & 6` | Mathematics for ML – House Price Prediction |
 | 4 | `Week 7 & 8` | Student Admission Prediction |
-| 5 | `Week 9 & 10` | Customer Churn Prediction |
+| 5 | `Week 9` | Customer Churn Prediction |
+| 6 | `Week 10` | Customer Segmentation Using Clustering |
 
 ---
 
@@ -37,8 +38,11 @@ Hack-O-Week-V-Semester-2026-2027/
 ├── Week 7 & 8/
 │   └── Student Admission Prediction
 │
-├── Week 9 & 10/
+├── Week 9/
 │   └── Customer Churn Prediction
+│
+├── Week 10/
+│   └── Customer Segmentation Using Clustering
 │
 └── README.md
 ```
@@ -507,7 +511,7 @@ MAE/RMSE/R²    Accuracy/Precision
 
 ### Folder
 
-`Week 9 & 10/`
+`Week 9/`
 
 ### Description
 
@@ -686,9 +690,321 @@ Final Analysis
 
 ---
 
+# 6. Customer Segmentation Using Clustering
+
+### Folder
+
+`Week 10/`
+
+### Description
+
+The **Customer Segmentation Using Clustering** project demonstrates a complete **machine-learning workflow using Scikit-learn** for customer segmentation.
+
+Customer segmentation is an unsupervised machine-learning technique used to divide customers into groups based on similarities in their behaviour and characteristics.
+
+The project applies and compares three clustering algorithms:
+
+- K-Means Clustering
+- Hierarchical Clustering
+- DBSCAN
+
+The workflow includes data inspection, data cleaning, feature selection, missing value handling, feature scaling, Scikit-learn pipelines, clustering, model evaluation, visualization, and interpretation.
+
+### Objectives
+
+- Understand and explore customer behaviour data.
+- Perform data cleaning and preprocessing.
+- Handle missing values.
+- Select relevant features for clustering.
+- Standardize numerical features.
+- Build preprocessing pipelines using Scikit-learn.
+- Apply K-Means clustering.
+- Apply Hierarchical Clustering.
+- Apply DBSCAN.
+- Evaluate clustering performance.
+- Visualize the generated clusters.
+- Compare different clustering algorithms.
+- Interpret the resulting customer segments.
+- Demonstrate a complete Scikit-learn machine-learning workflow.
+
+### Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- SciPy
+- Jupyter Notebook
+- Google Colab
+
+### Dataset
+
+The project uses an **E-commerce User Behavior and Transaction Dataset**.
+
+The dataset contains customer-level information related to purchasing behaviour, engagement, and online activity.
+
+The main features used for clustering include:
+
+- `Recency`
+- `Frequency`
+- `Monetary`
+- `Avg_Order_Value`
+- `Session_Count`
+- `Avg_Session_Duration`
+- `Pages_Viewed`
+- `Clicks`
+- `Campaign_Response`
+- `Wishlist_Adds`
+- `Cart_Abandon_Rate`
+- `Returns`
+
+The `Customer_ID` column is treated as an identifier and is not used for clustering.
+
+The `Noise_Flag` column is excluded from the main clustering features because it represents noise information rather than normal customer behaviour.
+
+### Data Preprocessing
+
+The project performs the following preprocessing steps:
+
+- Data inspection
+- Duplicate checking
+- Missing value handling
+- Feature selection
+- Numerical feature scaling
+
+Missing numerical values are handled using median imputation.
+
+The selected numerical features are standardized using:
+
+```text
+StandardScaler
+```
+
+### Scikit-learn Pipeline
+
+The project demonstrates the use of Scikit-learn `Pipeline` and `ColumnTransformer`.
+
+The preprocessing workflow is:
+
+```text
+Numerical Features
+       ↓
+Missing Value Imputation
+       ↓
+StandardScaler
+       ↓
+Clustering Algorithm
+```
+
+Separate pipelines are used for the clustering algorithms so that preprocessing is applied consistently.
+
+### K-Means Clustering
+
+K-Means is an unsupervised learning algorithm that divides observations into a predefined number of clusters.
+
+The **Elbow Method** is used to examine different values of K and help select a suitable number of clusters.
+
+The project then trains a K-Means model using a Scikit-learn pipeline and assigns each customer to a cluster.
+
+### Hierarchical Clustering
+
+The project uses **Agglomerative Hierarchical Clustering**.
+
+A dendrogram is generated to visualize the hierarchical structure of the customer data.
+
+A sample of the dataset is used for the dendrogram visualization so that it remains readable and computationally manageable.
+
+### DBSCAN
+
+DBSCAN stands for **Density-Based Spatial Clustering of Applications with Noise**.
+
+Unlike K-Means, DBSCAN does not require the number of clusters to be specified beforehand.
+
+DBSCAN identifies dense groups of observations and can also identify observations that do not belong to sufficiently dense regions as noise.
+
+The main parameters used are:
+
+- `eps`
+- `min_samples`
+
+### Model Evaluation
+
+Because clustering is an **unsupervised learning** problem, traditional classification accuracy is not used.
+
+The clustering algorithms are evaluated using:
+
+- Silhouette Score
+- Davies-Bouldin Index
+- Calinski-Harabasz Score
+
+A higher Silhouette Score and Calinski-Harabasz Score generally indicate better-defined clusters, while a lower Davies-Bouldin Index is generally preferred.
+
+### Visualization
+
+The project includes:
+
+- Feature distribution plots
+- Correlation heatmap
+- K-Means Elbow Method
+- Hierarchical clustering dendrogram
+- K-Means cluster visualization
+- Hierarchical cluster visualization
+- DBSCAN cluster visualization
+- PCA-based two-dimensional visualization
+- Cluster profile comparison
+
+PCA is used only to visualize the multi-dimensional clustering results in two dimensions. The clustering models are trained using the selected customer features.
+
+### Customer Segment Interpretation
+
+After clustering, customer-level feature averages are calculated for the generated groups.
+
+Important characteristics used for interpretation include:
+
+- Recency
+- Purchase frequency
+- Monetary value
+- Average order value
+- Session activity
+- Website engagement
+- Wishlist activity
+- Cart abandonment
+- Returns
+
+Possible customer segments may include:
+
+- High-value customers
+- Frequent customers
+- Recently inactive customers
+- Lower-value customers
+
+The exact interpretation is based on the cluster profiles produced by the notebook.
+
+### Workflow
+
+```text
+E-Commerce Customer Dataset
+            ↓
+      Data Inspection
+            ↓
+       Data Cleaning
+            ↓
+      Feature Selection
+            ↓
+   Missing Value Handling
+            ↓
+       Feature Scaling
+            ↓
+   Scikit-learn Pipeline
+            ↓
+    ┌────────┼────────┐
+    ↓        ↓        ↓
+ K-Means  Hierarchical DBSCAN
+    ↓        ↓        ↓
+    └────────┼────────┘
+             ↓
+      Model Evaluation
+             ↓
+    Algorithm Comparison
+             ↓
+     PCA Visualization
+             ↓
+   Customer Interpretation
+```
+
+### Project Structure
+
+```text
+Week 10/
+│
+├── Customer_Segmentation_Clustering.ipynb
+├── E-commerce dataset CSV
+├── requirements.txt
+└── README.md
+```
+
+### How to Run
+
+#### Google Colab
+
+1. Open `Customer_Segmentation_Clustering.ipynb` in Google Colab.
+2. Upload the dataset when prompted.
+3. Run the notebook cells sequentially from top to bottom.
+4. Examine the generated visualizations and evaluation results.
+5. Use the cluster profile tables for interpretation.
+
+#### Jupyter Notebook
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+Customer_Segmentation_Clustering.ipynb
+```
+
+Run the notebook cells sequentially.
+
+### Learning Outcomes
+
+After completing this project, the following concepts are demonstrated:
+
+- Unsupervised machine learning
+- Customer segmentation
+- Data exploration
+- Data cleaning
+- Missing value handling
+- Feature selection
+- Feature scaling
+- StandardScaler
+- SimpleImputer
+- ColumnTransformer
+- Scikit-learn Pipeline
+- K-Means Clustering
+- Elbow Method
+- Hierarchical Clustering
+- Agglomerative Clustering
+- Dendrogram
+- DBSCAN
+- Noise and outlier detection
+- Silhouette Score
+- Davies-Bouldin Index
+- Calinski-Harabasz Score
+- PCA visualization
+- Cluster interpretation
+- Business-oriented analysis
+
+### Academic Requirements Covered
+
+| Requirement | Implementation |
+|---|---|
+| Complete Scikit-learn workflow | Data preprocessing, pipeline, model building, evaluation and interpretation |
+| Preprocessing | Missing value imputation and feature scaling |
+| Scikit-learn Pipelines | `Pipeline` and `ColumnTransformer` |
+| K-Means | Implemented with Elbow Method |
+| Hierarchical Clustering | Agglomerative Clustering and dendrogram |
+| DBSCAN | Density-based clustering and noise detection |
+| Model Evaluation | Silhouette, Davies-Bouldin and Calinski-Harabasz |
+| Visualization | Elbow plot, dendrogram, PCA cluster plots and profiles |
+| Interpretation | Customer cluster profiling and business interpretation |
+
+---
+
 # Overall Technologies
 
-The five projects collectively use the following technologies:
+The six projects collectively use the following technologies:
 
 ### Programming Languages
 
@@ -718,6 +1034,9 @@ The five projects collectively use the following technologies:
 - Lasso Regression
 - Logistic Regression
 - K-Nearest Neighbors
+- K-Means
+- Hierarchical Clustering
+- DBSCAN
 - Gradient Descent
 
 ### Development Platforms
@@ -730,7 +1049,7 @@ The five projects collectively use the following technologies:
 
 # Overall Learning Outcomes
 
-After completing these projects, the following practical skills were developed:
+After completing these six projects, the following practical skills were developed:
 
 - Python programming
 - Web application development
@@ -747,6 +1066,8 @@ After completing these projects, the following practical skills were developed:
 - Linear algebra for machine learning
 - Regression
 - Classification
+- Unsupervised learning
+- Clustering
 - Feature engineering
 - Feature scaling
 - Missing value handling
@@ -756,6 +1077,10 @@ After completing these projects, the following practical skills were developed:
 - Precision and Recall
 - F1 Score
 - ROC-AUC
+- K-Means Clustering
+- Hierarchical Clustering
+- DBSCAN
+- Clustering evaluation
 - Machine learning model evaluation
 
 ---
@@ -764,9 +1089,9 @@ After completing these projects, the following practical skills were developed:
 
 The **Hack-O-Week V** projects provide a practical progression through different areas of computer science and machine learning.
 
-The **Task Management System** introduces web development, backend programming, and database operations. The **Employee Performance Analysis** project develops skills in data manipulation, statistical analysis, and visualization. The **Mathematics for Machine Learning – House Price Prediction** project connects mathematical concepts with machine learning. The **Student Admission Prediction** project demonstrates regression and classification techniques. Finally, the **Customer Churn Prediction** project implements a complete machine learning pipeline with preprocessing, feature engineering, cross-validation, and multiple evaluation metrics.
+The **Task Management System** introduces web development, backend programming, and database operations. The **Employee Performance Analysis** project develops skills in data manipulation, statistical analysis, and visualization. The **Mathematics for Machine Learning – House Price Prediction** project connects mathematical concepts with machine learning. The **Student Admission Prediction** project demonstrates regression and classification techniques. The **Customer Churn Prediction** project implements a complete machine learning pipeline with preprocessing, feature engineering, cross-validation, and multiple evaluation metrics. Finally, the **Customer Segmentation Using Clustering** project demonstrates an unsupervised machine-learning workflow using Scikit-learn, including K-Means, Hierarchical Clustering, DBSCAN, evaluation, visualization, and interpretation.
 
-Together, these five projects demonstrate the practical application of programming, web development, data analysis, mathematics, and machine learning concepts.
+Together, these six projects demonstrate the practical application of programming, web development, data analysis, mathematics, supervised machine learning, and unsupervised machine learning concepts.
 
 ---
 
@@ -774,4 +1099,4 @@ Together, these five projects demonstrate the practical application of programmi
 
 **Semester:** V  
 **Academic Year:** 2026–2027  
-**Number of Projects:** 5
+**Number of Projects:** 6
