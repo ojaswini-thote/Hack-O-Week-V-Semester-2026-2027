@@ -1,4 +1,4 @@
-# Week 4 - Student Admission Prediction
+# Week 7 & 8 - Student Admission Prediction
 
 ## 1. Project Overview
 
