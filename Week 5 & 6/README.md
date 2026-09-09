@@ -1,4 +1,4 @@
-# Week 3 - Mathematics for Machine Learning: House Price Prediction
+# Week 4 & 5 - Mathematics for Machine Learning: House Price Prediction
 
 ## 1. Project Overview
 
