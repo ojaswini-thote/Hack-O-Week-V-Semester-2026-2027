@@ -1,4 +1,4 @@
-# Week 2 - Employee Performance Analysis
+# Week 3 & 4 - Employee Performance Analysis
 
 ## 1. Project Overview
 
