@@ -1,4 +1,4 @@
-# Week 5 - Customer Churn Prediction
+# Week 9 & 10 - Customer Churn Prediction
 
 ## 1. Project Overview
 
