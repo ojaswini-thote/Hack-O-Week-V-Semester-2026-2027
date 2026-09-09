@@ -1,4 +1,4 @@
-# Week 1 - Task Management System
+# Week 1 & 2 - Task Management System
 
 ## 1. Project Overview
 
